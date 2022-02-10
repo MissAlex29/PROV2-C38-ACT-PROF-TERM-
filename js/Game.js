@@ -56,15 +56,35 @@ class Game {
       image(track, 0, -height * 5, width, height * 6);
       //Variable para guardar las posiciones de los jugadores 
       var index = 0; 
-      
+      //Esta función busca valores dentro del objeto javascript
+      //Buscamos la varianle prl en el objeto allPlayers
+      for(var prl in allPlayers){
+        //Aumentamos el indice en 1 
+        index = index + 1;
+        //Almacenamos las posiciones de la BD 
+        var x = allPlayers[prl].positionX;
+        var y = height - allPlayers[prl].positionY;
+        //Establecer las posiciones en la matriz cars 
+        //Restamos 1 para posicionarnos en la 1er posicion de la matriz 
+        cars[index-1].position.x = x;
+        cars[index-1].position.y = y; 
         
-
         
-      
+      } 
+        
+      //Llamamos función de controles 
+      this.handlePlayerControls();
     drawSprites();
     }
   }
 
   //Función para controles 
-  
+  handlePlayerControls() {
+    // manejando eventos de teclado
+    if (keyIsDown(UP_ARROW)) {
+      player.positionY += 10;
+      //Actualizamos posición del jugador en base de datos 
+      player.update();
+    }
+  }
 }
