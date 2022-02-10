@@ -28,9 +28,6 @@ class Player {
     });
   }
 
-  //Método para obtener la distancia entre jugadores 
-  
-
   //Actualizamos el campo playerCount en la base de datos 
   getCount() {
     var playerCountRef = database.ref("playerCount");
@@ -49,7 +46,15 @@ class Player {
   }
   
   //Actualiza posición del jugador en base de datos. 
-  
+  update() {
+    var playerIndex = "players/player" + this.index;
+    //.ref indica la ubicación de la base de datos 
+    database.ref(playerIndex).update({
+      //.update actualiza el nodo con el nuevo valor 
+      positionX: this.positionX,
+      positionY: this.positionY,
+    });
+  }
 
   //Obtener información de los jugadores 
   static getPlayersInfo() {
