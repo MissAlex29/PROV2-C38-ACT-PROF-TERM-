@@ -1,11 +1,8 @@
 //Variables globales 
 var canvas;
-var backgroundImage;
-var bgImg;
-var database;
-var gameState;
-var form, player;
-var playerCount;
+var backgroundImage, car1_img, car2_img, track;
+var database, gameState;
+var form, player, playerCount;
 var allPlayers, car1, car2;
 var cars = [];
 

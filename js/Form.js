@@ -62,6 +62,7 @@ class Form {
       player.addPlayer();
       //Aumenta el campo en la base de datos 
       player.updateCount(playerCount);
+      
     });
   }
 
